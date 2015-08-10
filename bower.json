@@ -1,0 +1,31 @@
+{
+  "name": "dom-else",
+  "version": "1.0.0",
+  "authors": [
+    "Brandon Myers <trakkasure@gmail.com>"
+  ],
+  "description": "The template element providing the ELSE to the dom-if template",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "bind",
+    "template",
+    "dom-if",
+    "dom-else"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.0.1"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.4",
+    "web-component-tester": "*"
+  }
+}

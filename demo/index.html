@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>Bindref Component Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../dom-else.html">
+  </head>
+  <body>
+<dom-module id="x-textcontent">
+  <template>
+    <template id="domIf" is="dom-if" if>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      Stuff
+      <div>4</div>
+      <template is="dom-else" id="else">
+        <div>e1</div>
+        <div>e2</div>
+        More stuff
+        <div>e3</div>
+      </template>
+    </template>
+  </template>
+    <script>
+       window.addEventListener('WebComponentsReady',function() {
+            t = document.querySelector('#t');
+        });
+       function clicked() {
+           t.$.domIf.if=!t.$.domIf.if;
+       }
+    </script>
+  <script>
+  Polymer({
+    is: 'x-textcontent'
+  });
+  </script>
+</dom-module>
+
+      <h1>DOM-ELSE demo</h1>
+
+        <button onclick="clicked()">Toggle</button>
+
+        <x-textcontent id="t"></x-textcontent>
+
+
+  </body>
+</html>

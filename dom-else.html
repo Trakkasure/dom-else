@@ -103,6 +103,7 @@ Thus I include the original license from that file.
     _render: function() {
       if (this._else) {
         if (!this.ctor) {
+          this._wrapTextNodes(this._content || this.content);
           this.templatize(this);
         }
         this._ensureInstance();
@@ -116,6 +117,16 @@ Thus I include the original license from that file.
       if (this._else != this._lastIf) {
         //this.fire('dom-change');
         this._lastIf = this._else;
+      }
+    },
+    _wrapTextNodes: function (root) {
+      for (var n = root.firstChild.nextSibling; n; n = n.nextSibling) {
+        if (n.nodeType === Node.TEXT_NODE && n.textContent.trim()) {
+          var s = document.createElement('span');
+          root.insertBefore(s, n);
+          s.appendChild(n);
+          n = s;
+        }
       }
     },
 
